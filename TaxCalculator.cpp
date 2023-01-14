@@ -1,62 +1,50 @@
 #include<iostream>
 using namespace std;
-float taxCalculator(char type,int price);
+float taxCalculator(char type,float price);
 
 main()
 {
-    int price;
+    float price;
     char type;
     cout<<"Eneter price of your Vehicle: ";
     cin>>price;
     cout<<"Enter the type of Vehicle: ";
     cin>>type;
     
-    int finalPrice =  taxCalculator(type,price);
-    cout<<"The final price on a vehicle of type "<<type<<" after tax is $"<<finalPrice;
+    float result =  taxCalculator(type,price);
+    cout<<"The final price of the vehicle is: $"<<result;
 }
 
-  void taxCalculator(char type ,int price)
+  float taxCalculator(char type ,float price)
   {
-     int taxAmount;
-     int finalPrice;
+     float finalPrice;
      if(type=='M')
      {
-        taxAmount = price*(6/100);
-        finalPrice = taxAmount+price;
-        return finalPrice;
+        finalPrice = (price*0.06)+price;
      }
 
-     if(type=='E')
+     else if(type=='E')
      {
-        taxAmount = price*(8/100);
-        finalPrice = taxAmount+price;
-        return finalPrice;
+        finalPrice =(price*0.08)+price;
         
      }
 
-     if(type=='S')
+     else if(type=='S')
      {
-        taxAmount = price*(10/100);
-        finalPrice = taxAmount+price;
-        return finalPrice;
+        finalPrice =(price*0.1)+price;
         
      }
 
-     if(type=='V')
+     else if(type=='V')
      {
-        taxAmount = price*(12/100);
-        finalPrice = taxAmount+price;
-        return finalPrice;
+        finalPrice = (price*0.12)+price;
         
      }
 
-     if(type=='T')
+     else if(type=='T')
      {
-        taxAmount = price*(15/100);
-        finalPrice = taxAmount+price;
-        return finalPrice;
-        
+        finalPrice = (price*0.15)+price;   
      }
      
-      return 0;
+      return finalPrice;
   }
